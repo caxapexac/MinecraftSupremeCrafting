@@ -1,0 +1,31 @@
+.gradle/
+build/
+out/
+.idea/
+*.iml
+.vscode/
+# IntelliJ external compiler args dump (Windows command-line length workaround) —
+# generated per-compile with timestamps + machine-absolute paths.
+**/javac.*.args
+run/
+runs/
+# Architectury Loom uses runDir per-run; default is `run` but our extra dev clients (see
+# neoforge/build.gradle's `loom { runs { client2 { … } } }`) get their own dirs.
+run-*/
+logs/
+*.log
+
+# Don't track vendored osu! source
+vendor/
+
+# Native build artifacts
+clr-bridge/native/build/
+clr-bridge/native/cmake-build-*/
+
+# Managed build artifacts
+clr-bridge/managed/bin/
+clr-bridge/managed/obj/
+.claude/settings.local.json
+CLAUDE.md
+
+_Legacy/
