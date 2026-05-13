@@ -1,0 +1,25 @@
+{
+  "type": "supreme_crafting:supreme_shaped",
+  "pattern": [
+    ".GGGGG.",
+    ".G.E.G.",
+    ".GGGGG.",
+    ".G...G.",
+    "GG...GG",
+    "G..T..G",
+    "GG...GG",
+    ".G...G.",
+    ".G...G.",
+    ".G...G.",
+    ".GGGGG."
+  ],
+  "key": {
+    "G": { "item": "minecraft:gold_block" },
+    "E": { "item": "minecraft:emerald_block" },
+    "T": { "item": "minecraft:nether_star" }
+  },
+  "result": {
+    "id": "minecraft:totem_of_undying",
+    "count": 1
+  }
+}

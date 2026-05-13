@@ -1,0 +1,17 @@
+{
+  "name": "Supreme Wrench",
+  "icon": "supreme_crafting:supreme_wrench",
+  "category": "supreme_crafting:tools",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Right-click any wall of a fully-built Supreme Furnace shell to form it. The shell can be any of the three valid cube sizes (32, 64, or 128) and may include $(item)Input/Output/Fuel Hatches$() in place of plain casing."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "supreme_crafting:supreme_wrench",
+      "title": "Recipe"
+    }
+  ]
+}

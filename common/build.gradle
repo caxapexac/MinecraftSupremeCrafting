@@ -2,6 +2,22 @@ architectury {
     common rootProject.enabled_platforms.split(',')
 }
 
+loom {
+    accessWidenerPath = file("src/main/resources/supreme_crafting.accesswidener")
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'TerraformersMC'
+        url = 'https://maven.terraformersmc.com/releases/'
+    }
+    maven {
+        name = 'BlameJared'
+        url = 'https://maven.blamejared.com/'
+    }
+}
+
 dependencies {
     // We depend on Fabric Loader here to use the Fabric @Environment annotations,
     // which get remapped to the correct annotations on each platform.
@@ -10,4 +26,33 @@ dependencies {
 
     // Architectury API. This is optional, and you can comment it out if you don't need it.
     modImplementation "dev.architectury:architectury:$rootProject.architectury_api_version"
+
+    // Recipe-viewer APIs — compile-only so common loads cleanly without them
+    // at runtime. Pluggin classes live in common; per-loader runtime jars are
+    // declared in fabric/neoforge build.gradles. Picking the fabric-flavoured
+    // EMI api jar is fine — the EMI public API surface is identical across
+    // loader variants, and we never reference fabric-specific EMI internals.
+    modCompileOnly "dev.emi:emi-fabric:$rootProject.emi_version:api"
+    modCompileOnly "mezz.jei:jei-1.21.1-common-api:$rootProject.jei_version"
+    modCompileOnly "mezz.jei:jei-1.21.1-fabric-api:$rootProject.jei_version"
+
+    // MouseTweaks — compile-only for the @MouseTweaksDisableWheelTweak
+    // annotation. Class-retention is RUNTIME but the JVM ignores missing
+    // annotation classes silently, so common loads cleanly when MouseTweaks
+    // is absent at runtime. Either loader-flavoured jar contains the same
+    // `yalter.mousetweaks.api` package; we pick the NeoForge build arbitrarily.
+    modCompileOnly "maven.modrinth:mouse-tweaks:$rootProject.mouse_tweaks_neoforge_version"
+
+    testImplementation platform('org.junit:junit-bom:5.10.2')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events 'failed'
+        exceptionFormat 'full'
+        showStandardStreams false
+    }
 }

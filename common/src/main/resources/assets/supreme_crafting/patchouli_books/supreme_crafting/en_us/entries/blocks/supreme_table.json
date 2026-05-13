@@ -1,0 +1,22 @@
+{
+  "name": "Supreme Table",
+  "icon": "supreme_crafting:supreme_table",
+  "category": "supreme_crafting:blocks",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The $(item)Supreme Table$() is an $(l)81x81$() crafting grid — 6561 cells of possible recipe space. Pan with $(thing)middle-mouse drag$(), zoom with $(thing)scroll wheel$(). Recipes are shape-and-size-strict: place ingredients in a tight bounding box anywhere on the canvas and the result appears as long as the pattern matches."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Crafting",
+      "text": "Drop ingredients into any cells. $(br2)Use EMI or JEI's $(l)+$() button to auto-fill — partial fills are supported, so big recipes can be completed across multiple top-up clicks."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "supreme_crafting:supreme_table",
+      "title": "Recipe"
+    }
+  ]
+}

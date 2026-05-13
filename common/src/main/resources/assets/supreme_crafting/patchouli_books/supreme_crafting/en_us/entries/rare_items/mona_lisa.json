@@ -1,0 +1,17 @@
+{
+  "name": "Mona Lisa",
+  "icon": "minecraft:end_portal_frame",
+  "category": "supreme_crafting:rare_items",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "An art piece — and a portal. Get the placement right and the table yields a full set of $(l)12 End Portal Frames$() — enough to build a complete portal."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "On Effort",
+      "text": "The cost isn't in materials — paint blocks are cheap. The cost is in the placement. Roughly six thousand cells of the canvas, each one specific. Bring patience."
+    }
+  ]
+}

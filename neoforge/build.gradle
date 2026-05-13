@@ -7,6 +7,10 @@ architectury {
     neoForge()
 }
 
+loom {
+    accessWidenerPath = project(":common").file("src/main/resources/supreme_crafting.accesswidener")
+}
+
 configurations {
     common {
         canBeResolved = true
@@ -29,6 +33,30 @@ repositories {
         name = 'NeoForged'
         url = 'https://maven.neoforged.net/releases'
     }
+    maven {
+        name = 'TerraformersMC'
+        url = 'https://maven.terraformersmc.com/releases/'
+    }
+    maven {
+        name = 'BlameJared'
+        url = 'https://maven.blamejared.com/'
+    }
+    maven {
+        // Latvian.dev hosts KubeJS's transitive deps (tiny-java-server,
+        // better-advanced-tooltips). KubeJS bundles them via NeoForge JarInJar
+        // in production, but Loom's dev classpath doesn't extract JIJ — we
+        // pull each one as a real dep below to make dev runs work.
+        name = 'LatvianDev'
+        url = 'https://maven.latvian.dev/releases'
+        content { includeGroupByRegex 'dev\\.latvian\\..*' }
+    }
+    maven {
+        // Jitpack — only needed for `com.github.rtyley:animated-gif-lib-for-java`
+        // which KubeJS uses for its image-based features. JIJ'd in prod.
+        name = 'Jitpack'
+        url = 'https://jitpack.io'
+        content { includeGroup 'com.github.rtyley' }
+    }
 }
 
 dependencies {
@@ -37,8 +65,98 @@ dependencies {
     // Architectury API. This is optional, and you can comment it out if you don't need it.
     modImplementation "dev.architectury:architectury-neoforge:$rootProject.architectury_api_version"
 
+    // Fabric Loader (compile-time only) — common code carries @Environment
+    // annotations whose enum constant `EnvType.CLIENT` lives in fabric-loader.
+    // Loom remaps @Environment → @OnlyIn at jar-build time, but during
+    // `:neoforge:compileJava` the compiler still wants to resolve the enum
+    // value to emit annotation metadata. Without this dep the build prints
+    // two "unknown enum constant EnvType.CLIENT" warnings. Compile-only so
+    // it never reaches the runtime classpath.
+    compileOnly "net.fabricmc:fabric-loader:$rootProject.fabric_loader_version"
+
     common(project(path: ':common', configuration: 'namedElements')) { transitive = false }
     shadowBundle project(path: ':common', configuration: 'transformProductionNeoForge')
+
+    // EMI — recipe viewer integration. See fabric/build.gradle for rationale.
+    modCompileOnly "dev.emi:emi-neoforge:$rootProject.emi_version:api"
+
+    // JEI — recipe viewer integration. See fabric/build.gradle for rationale.
+    modCompileOnly "mezz.jei:jei-1.21.1-common-api:$rootProject.jei_version"
+    modCompileOnly "mezz.jei:jei-1.21.1-neoforge-api:$rootProject.jei_version"
+
+    // Runtime — gated by the `viewer` Gradle property (default: both).
+    def viewer = (project.findProperty('viewer') ?: 'both').toString().toLowerCase()
+    if (viewer == 'both' || viewer == 'emi') {
+        modLocalRuntime "dev.emi:emi-neoforge:$rootProject.emi_version"
+    }
+    if (viewer == 'both' || viewer == 'jei') {
+        modLocalRuntime "mezz.jei:jei-1.21.1-neoforge:$rootProject.jei_version"
+    }
+
+    // KubeJS — on by default in dev. Opt out with `-Pkubejs=false` if you
+    // want to test viewer/UI behaviour without KubeJS reload spam in the log.
+    def kubejs = (project.findProperty('kubejs') ?: 'true').toString().toLowerCase() == 'true'
+    if (kubejs) {
+        modLocalRuntime "maven.modrinth:kubejs:$rootProject.kubejs_version"
+        // Rhino (Mozilla JS engine) — separate mod jar on Modrinth.
+        modLocalRuntime "maven.modrinth:rhino:$rootProject.rhino_version"
+        // KubeJS's transitive deps are JarInJar'd in production. Loom's remap
+        // strips META-INF/jarjar/metadata.json so FML can't extract them in dev.
+        // Add them directly to `developmentNeoForge` (the config Loom hands the
+        // runClient task as the runtime mod/lib classpath).
+        // Versions mirror the JIJ bundle inside kubejs-2101.7.2-build.363.
+        modLocalRuntime "dev.latvian.mods:better-advanced-tooltips:$rootProject.kubejs_bat_version"
+        developmentNeoForge "dev.latvian.apps:tiny-java-server:$rootProject.kubejs_tinyserver_version"
+        developmentNeoForge "com.github.rtyley:animated-gif-lib-for-java:$rootProject.kubejs_animatedgiflib_version"
+    }
+
+    // MouseTweaks — on by default in dev. Opt out with `-Pmousetweaks=false`.
+    def mousetweaks = (project.findProperty('mousetweaks') ?: 'true').toString().toLowerCase() == 'true'
+    if (mousetweaks) {
+        modLocalRuntime "maven.modrinth:mouse-tweaks:$rootProject.mouse_tweaks_neoforge_version"
+    }
+
+    // Jade — on by default in dev. Opt out with `-Pjade=false`. No custom
+    // provider in our mod; we rely on Jade's default block-name tooltip.
+    def jade = (project.findProperty('jade') ?: 'true').toString().toLowerCase() == 'true'
+    if (jade) {
+        modLocalRuntime "maven.modrinth:jade:$rootProject.jade_neoforge_version"
+    }
+
+    // Patchouli — on by default in dev. Opt out with `-Ppatchouli=false`.
+    // Pulled from CurseMaven (CurseForge file id). Used for the in-game
+    // guidebook entries that live in our resources.
+    def patchouli = (project.findProperty('patchouli') ?: 'true').toString().toLowerCase() == 'true'
+    if (patchouli) {
+        modLocalRuntime "curse.maven:patchouli-306770:$rootProject.patchouli_neoforge_file_id"
+    }
+}
+
+['Emi', 'Jei'].each { v ->
+    tasks.register("runClient${v}", GradleBuild) {
+        group = 'neoforge'
+        description = "Run the NeoForge client with only ${v} loaded as the recipe viewer."
+        tasks = [':neoforge:runClient']
+        startParameter.projectProperties = [viewer: v.toLowerCase()]
+    }
+}
+
+// Dev-server RCON: enable on every runServer so scripts/rcon.py can drive the
+// console. RCON binds to whatever the server binds to; we leave server-ip
+// unset so MC listens on all loopback interfaces (IPv4 + IPv6) — required
+// for Windows clients that default to ::1. Password is a committed dev-only
+// value; the port is firewalled away from outside the machine anyway.
+tasks.named('runServer').configure {
+    doFirst {
+        def f = file('run/server.properties')
+        f.parentFile.mkdirs()
+        def p = new Properties()
+        if (f.exists()) f.withInputStream { p.load(it) }
+        p['enable-rcon'] = 'true'
+        p['rcon.port'] = '25575'
+        p['rcon.password'] = 'supreme-dev-rcon'
+        f.withOutputStream { p.store(it, 'dev RCON config from neoforge/build.gradle') }
+    }
 }
 
 processResources {
@@ -46,6 +164,16 @@ processResources {
 
     filesMatching('META-INF/neoforge.mods.toml') {
         expand version: inputs.properties.version
+    }
+
+    // Mirror common's Patchouli book.json (and any other data files Patchouli
+    // discovers via mod-file walk) into per-loader resources. Common's
+    // resources are on the dev classpath but NOT in the per-loader mod
+    // container's resource tree — so Patchouli's findFiles() can't see
+    // book.json there. ResourceManager-based loading (entries, categories)
+    // works fine without this.
+    from(project(":common").file("src/main/resources/data/supreme_crafting/patchouli_books")) {
+        into 'data/supreme_crafting/patchouli_books'
     }
 }
 

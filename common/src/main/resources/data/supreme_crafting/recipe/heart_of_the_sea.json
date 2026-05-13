@@ -1,0 +1,28 @@
+{
+  "type": "supreme_crafting:supreme_shaped",
+  "pattern": [
+    ".......S.......",
+    "....SSSSSSS....",
+    "...SSSSSSSSS...",
+    "..SSSSSSSSSSS..",
+    ".SSSSSSSSSSSSS.",
+    ".SSSSSSSSSSSSS.",
+    ".SSSSSSSSSSSSS.",
+    "SSSSSSSHSSSSSSS",
+    ".SSSSSSSSSSSSS.",
+    ".SSSSSSSSSSSSS.",
+    ".SSSSSSSSSSSSS.",
+    "..SSSSSSSSSSS..",
+    "...SSSSSSSSS...",
+    "....SSSSSSS....",
+    ".......S......."
+  ],
+  "key": {
+    "S": { "item": "minecraft:prismarine" },
+    "H": { "item": "minecraft:nautilus_shell" }
+  },
+  "result": {
+    "id": "minecraft:heart_of_the_sea",
+    "count": 1
+  }
+}

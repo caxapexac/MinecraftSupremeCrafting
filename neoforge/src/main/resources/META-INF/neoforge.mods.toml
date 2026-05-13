@@ -1,17 +1,15 @@
 modLoader = "javafml"
 loaderVersion = "[4,)"
-#issueTrackerURL = ""
-license = "Insert License Here"
+license = "All Rights Reserved"
 
 [[mods]]
 modId = "supreme_crafting"
 version = "${version}"
 displayName = "Supreme Crafting"
-authors = "Me!"
+authors = "caxapexac"
 description = '''
-This is an example description! Tell everyone what your mod is about!
+Oversized crafting devices and other unexpected uses of vanilla mechanics. First feature: an 81x81 crafting table.
 '''
-#logoFile = ""
 
 [[dependencies.supreme_crafting]]
 modId = "neoforge"

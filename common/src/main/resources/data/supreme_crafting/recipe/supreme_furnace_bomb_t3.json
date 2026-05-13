@@ -1,0 +1,17 @@
+{
+  "type": "supreme_crafting:supreme_shaped",
+  "pattern": [
+    "BNB",
+    "NFN",
+    "BNB"
+  ],
+  "key": {
+    "B": { "item": "supreme_crafting:supreme_furnace_bomb_t2" },
+    "N": { "item": "minecraft:nether_star" },
+    "F": { "item": "supreme_crafting:supreme_furnace_casing" }
+  },
+  "result": {
+    "id": "supreme_crafting:supreme_furnace_bomb_t3",
+    "count": 1
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "supreme_crafting:supreme_shaped",
+  "pattern": [
+    "BGB",
+    "GFG",
+    "BGB"
+  ],
+  "key": {
+    "B": { "item": "supreme_crafting:supreme_furnace_bomb_t1" },
+    "G": { "item": "minecraft:gunpowder" },
+    "F": { "item": "supreme_crafting:supreme_furnace_casing" }
+  },
+  "result": {
+    "id": "supreme_crafting:supreme_furnace_bomb_t2",
+    "count": 1
+  }
+}

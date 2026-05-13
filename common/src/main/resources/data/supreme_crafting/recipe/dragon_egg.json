@@ -1,0 +1,24 @@
+{
+  "type": "supreme_crafting:supreme_shaped",
+  "pattern": [
+    "NNNNNNNNN",
+    "N.......N",
+    "N.E...E.N",
+    "N..OOO..N",
+    "N..ODO..N",
+    "N..OOO..N",
+    "N.E...E.N",
+    "N.......N",
+    "NNNNNNNNN"
+  ],
+  "key": {
+    "N": { "item": "minecraft:netherite_ingot" },
+    "E": { "item": "minecraft:end_crystal" },
+    "O": { "item": "minecraft:obsidian" },
+    "D": { "item": "minecraft:dragon_egg" }
+  },
+  "result": {
+    "id": "minecraft:dragon_egg",
+    "count": 2
+  }
+}

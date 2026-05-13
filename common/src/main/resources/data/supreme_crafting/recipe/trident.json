@@ -1,0 +1,39 @@
+{
+  "type": "supreme_crafting:supreme_shaped",
+  "pattern": [
+    "TTT.TTT.TTT",
+    "TTT.TTT.TTT",
+    "TTT.TTT.TTT",
+    "BBBBBBBBBBB",
+    "BBBBBBBBBBB",
+    "....NNN....",
+    "....SSS....",
+    "....SSS....",
+    "....SSS....",
+    "....SSS....",
+    "....SSS....",
+    "....SSS....",
+    "....SSS....",
+    "....SSS....",
+    "....SSS....",
+    "....SSS....",
+    "....SSS....",
+    "....SSS....",
+    "....SSS....",
+    "....SSS....",
+    "....SSS....",
+    "....SSS....",
+    "....SSS....",
+    "....SSS...."
+  ],
+  "key": {
+    "T": { "item": "minecraft:iron_ingot" },
+    "B": { "item": "minecraft:prismarine" },
+    "N": { "item": "minecraft:nautilus_shell" },
+    "S": { "item": "minecraft:copper_ingot" }
+  },
+  "result": {
+    "id": "minecraft:trident",
+    "count": 1
+  }
+}

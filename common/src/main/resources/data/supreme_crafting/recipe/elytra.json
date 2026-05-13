@@ -1,0 +1,49 @@
+{
+  "type": "supreme_crafting:supreme_shaped",
+  "pattern": [
+    "                                ",
+    "                                ",
+    "                                ",
+    "                                ",
+    "        DDDDDDDDDDDDDDDD        ",
+    "        DDDDDDDDDDDDDDDD        ",
+    "    DDDDPPPPDDDDDDDDPPPPDDDD    ",
+    "    DDDDPPPPDDDDDDDDPPPPDDDD    ",
+    "  DDPPPPPPPPDD    DDPPPPPPPPDD  ",
+    "  DDPPPPPPPPDD    DDPPPPPPPPDD  ",
+    "  DDPPPPPPPPDD    DDPPPPPPPPDD  ",
+    "  DDPPPPPPPPDD    DDPPPPPPPPDD  ",
+    "  DDPPPPPPPPDD    DDPPPPPPPPDD  ",
+    "  DDPPPPPPPPDD    DDPPPPPPPPDD  ",
+    "  DDPPPPPPPPDD    DDPPPPPPPPDD  ",
+    "  DDPPPPPPPPDD    DDPPPPPPPPDD  ",
+    "  DDPPPPPPPPDD    DDPPPPPPPPDD  ",
+    "  DDPPPPPPPPDD    DDPPPPPPPPDD  ",
+    "  DDPPPPPPPPDD    DDPPPPPPDDDD  ",
+    "  DDPPPPPPPPDD    DDPPPPPPDDDD  ",
+    "    DDPPPPPPDD    DDPPPPPPDD    ",
+    "    DDPPPPPPDD    DDPPPPPPDD    ",
+    "    DDPPPPPPDD    DDPPPPPPDD    ",
+    "    DDPPPPPPDD    DDPPPPPPDD    ",
+    "      DDPPDD        DDPPDD      ",
+    "      DDPPDD        DDPPDD      ",
+    "      DDDD            DDDD      ",
+    "      DDDD            DDDD      ",
+    "                                ",
+    "                                ",
+    "                                ",
+    "                                "
+  ],
+  "key": {
+    "P": {
+      "item": "minecraft:phantom_membrane"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "result": {
+    "id": "minecraft:elytra",
+    "count": 1
+  }
+}

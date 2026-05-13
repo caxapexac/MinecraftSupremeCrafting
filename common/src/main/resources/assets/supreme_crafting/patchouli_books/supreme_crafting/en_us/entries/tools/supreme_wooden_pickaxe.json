@@ -1,0 +1,12 @@
+{
+  "name": "Supreme Wooden Pickaxe",
+  "icon": "supreme_crafting:supreme_wooden_pickaxe",
+  "category": "supreme_crafting:tools",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "A wooden pickaxe, towering. Vanilla stats."
+    }
+  ]
+}

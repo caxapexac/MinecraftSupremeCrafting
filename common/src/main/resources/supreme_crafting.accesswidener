@@ -1,0 +1,14 @@
+accessWidener v2 named
+
+# Required for the 81x81 table screen (1e+):
+#   - Slot.x / Slot.y must be mutable so a single 81-slot menu can move its
+#     active 9x9 around the canvas as the player pans (Google Maps feel).
+#     Vanilla makes them final since 1.21; we cannot otherwise reposition
+#     slots without subclassing every consumer of slot.x / slot.y in vanilla.
+#   - AbstractContainerScreen.isHovering(Slot, double, double) is private in
+#     vanilla; we override it to hit-test at the variable cellSize used by
+#     zoom. Same renderSlot story.
+mutable field net/minecraft/world/inventory/Slot x I
+mutable field net/minecraft/world/inventory/Slot y I
+accessible method net/minecraft/client/gui/screens/inventory/AbstractContainerScreen isHovering (Lnet/minecraft/world/inventory/Slot;DD)Z
+extendable method net/minecraft/client/gui/screens/inventory/AbstractContainerScreen isHovering (Lnet/minecraft/world/inventory/Slot;DD)Z

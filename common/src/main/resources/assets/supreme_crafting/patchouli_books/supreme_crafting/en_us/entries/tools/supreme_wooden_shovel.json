@@ -1,0 +1,12 @@
+{
+  "name": "Supreme Wooden Shovel",
+  "icon": "supreme_crafting:supreme_wooden_shovel",
+  "category": "supreme_crafting:tools",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "A wooden shovel, towering. Vanilla stats."
+    }
+  ]
+}

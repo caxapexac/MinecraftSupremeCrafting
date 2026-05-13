@@ -1,0 +1,17 @@
+{
+  "name": "Supreme Furnace Terminal",
+  "icon": "supreme_crafting:supreme_furnace_terminal",
+  "category": "supreme_crafting:tools",
+  "sortnum": 11,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Wireless remote access to a Supreme Furnace. Right-click any wall of a formed furnace to bind the terminal to that furnace's region. Right-click in the air anywhere to open the furnace's menu remotely — works cross-dimension and at any distance. Tooltip shows the bound dimension + region UUID."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "supreme_crafting:supreme_furnace_terminal",
+      "title": "Recipe"
+    }
+  ]
+}

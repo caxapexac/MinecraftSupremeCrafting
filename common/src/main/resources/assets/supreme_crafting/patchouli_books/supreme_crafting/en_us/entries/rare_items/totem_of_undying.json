@@ -1,0 +1,12 @@
+{
+  "name": "Totem of Undying",
+  "icon": "minecraft:totem_of_undying",
+  "category": "supreme_crafting:rare_items",
+  "sortnum": 7,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Evoker drops only, in vanilla. The Supreme recipe gets you a free life — at a moderate price."
+    }
+  ]
+}

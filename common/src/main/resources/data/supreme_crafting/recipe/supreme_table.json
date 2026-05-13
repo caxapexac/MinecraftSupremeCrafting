@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "G",
+    "C"
+  ],
+  "key": {
+    "G": { "item": "minecraft:dirt" },
+    "C": { "item": "minecraft:crafting_table" }
+  },
+  "result": {
+    "id": "supreme_crafting:supreme_table",
+    "count": 1
+  }
+}

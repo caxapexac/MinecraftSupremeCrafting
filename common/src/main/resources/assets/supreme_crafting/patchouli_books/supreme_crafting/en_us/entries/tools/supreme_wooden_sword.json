@@ -1,0 +1,12 @@
+{
+  "name": "Supreme Wooden Sword",
+  "icon": "supreme_crafting:supreme_wooden_sword",
+  "category": "supreme_crafting:tools",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "A wooden sword, towering. Vanilla stats."
+    }
+  ]
+}

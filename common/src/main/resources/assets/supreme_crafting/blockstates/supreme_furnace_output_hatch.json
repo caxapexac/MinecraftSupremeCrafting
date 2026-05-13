@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "formed=false": { "model": "supreme_crafting:block/supreme_furnace_casing" },
+    "formed=true":  { "model": "supreme_crafting:block/supreme_furnace_casing" }
+  }
+}

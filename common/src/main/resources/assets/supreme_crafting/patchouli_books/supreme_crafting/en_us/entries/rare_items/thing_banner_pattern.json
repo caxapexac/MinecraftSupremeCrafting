@@ -1,0 +1,12 @@
+{
+  "name": "Thing Banner Pattern",
+  "icon": "minecraft:mojang_banner_pattern",
+  "category": "supreme_crafting:rare_items",
+  "sortnum": 9,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Mojang Studios logo, as a banner pattern. Vanilla offers no survival path — only $(thing)/give$(). Finally accessible."
+    }
+  ]
+}

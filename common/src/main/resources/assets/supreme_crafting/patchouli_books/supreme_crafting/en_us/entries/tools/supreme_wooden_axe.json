@@ -1,0 +1,12 @@
+{
+  "name": "Supreme Wooden Axe",
+  "icon": "supreme_crafting:supreme_wooden_axe",
+  "category": "supreme_crafting:tools",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "A wooden axe, towering. Vanilla stats."
+    }
+  ]
+}

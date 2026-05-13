@@ -1,0 +1,17 @@
+{
+  "type": "supreme_crafting:supreme_shaped",
+  "pattern": [
+    "RPR",
+    "PEP",
+    "RPR"
+  ],
+  "key": {
+    "R": { "item": "minecraft:red_dye" },
+    "P": { "item": "minecraft:paper" },
+    "E": { "item": "minecraft:ender_eye" }
+  },
+  "result": {
+    "id": "minecraft:mojang_banner_pattern",
+    "count": 1
+  }
+}

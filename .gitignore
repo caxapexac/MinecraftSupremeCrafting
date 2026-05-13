@@ -7,7 +7,15 @@ out/
 # IntelliJ external compiler args dump (Windows command-line length workaround) —
 # generated per-compile with timestamps + machine-absolute paths.
 **/javac.*.args
-run/
+# Dev-run working dirs are gitignored, EXCEPT for kubejs/server_scripts/
+# which we keep in-repo so sample/demo recipe scripts survive `git clean`
+# and travel with the project. KubeJS doesn't auto-generate anything under
+# server_scripts/ — it only reads .js files there — so this stays clean.
+**/run/*
+!**/run/kubejs/
+**/run/kubejs/*
+!**/run/kubejs/server_scripts/
+!**/run/kubejs/server_scripts/**
 runs/
 # Architectury Loom uses runDir per-run; default is `run` but our extra dev clients (see
 # neoforge/build.gradle's `loom { runs { client2 { … } } }`) get their own dirs.
@@ -25,7 +33,7 @@ clr-bridge/native/cmake-build-*/
 # Managed build artifacts
 clr-bridge/managed/bin/
 clr-bridge/managed/obj/
-.claude/settings.local.json
+.claude/
 CLAUDE.md
 
 _Legacy/

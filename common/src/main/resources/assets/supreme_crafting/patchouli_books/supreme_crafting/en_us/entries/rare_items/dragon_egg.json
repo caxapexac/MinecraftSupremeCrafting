@@ -1,0 +1,12 @@
+{
+  "name": "Dragon Egg",
+  "icon": "minecraft:dragon_egg",
+  "category": "supreme_crafting:rare_items",
+  "sortnum": 6,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "One per world — that's the rule. The Supreme Table can bend it: feed your existing egg in, get two back. Slow, but it scales."
+    }
+  ]
+}

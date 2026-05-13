@@ -1,0 +1,26 @@
+{
+  "type": "supreme_crafting:supreme_shaped",
+  "pattern": [
+    "PPPP...",
+    "PPPPP..",
+    "PPPPPP.",
+    "PPPPP..",
+    "PPPP...",
+    "...S...",
+    "...S...",
+    "...S...",
+    "...S...",
+    "...S...",
+    "...S...",
+    "...S...",
+    "...S..."
+  ],
+  "key": {
+    "P": { "tag": "minecraft:planks" },
+    "S": { "item": "minecraft:stick" }
+  },
+  "result": {
+    "id": "supreme_crafting:supreme_wooden_axe",
+    "count": 1
+  }
+}

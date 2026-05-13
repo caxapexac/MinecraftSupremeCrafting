@@ -1,0 +1,24 @@
+{
+  "type": "supreme_crafting:supreme_shaped",
+  "pattern": [
+    "NNBBBBBNN",
+    "NN.....NN",
+    "B.......B",
+    "B..SSS..B",
+    "B..SWS..B",
+    "B..SSS..B",
+    "B.......B",
+    "NN.....NN",
+    "NNBBBBBNN"
+  ],
+  "key": {
+    "N": { "item": "minecraft:netherite_ingot" },
+    "B": { "item": "minecraft:iron_bars" },
+    "S": { "item": "minecraft:soul_sand" },
+    "W": { "item": "minecraft:wither_skeleton_skull" }
+  },
+  "result": {
+    "id": "minecraft:spawner",
+    "count": 1
+  }
+}

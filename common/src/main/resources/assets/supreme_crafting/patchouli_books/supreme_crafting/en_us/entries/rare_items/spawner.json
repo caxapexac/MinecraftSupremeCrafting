@@ -1,0 +1,17 @@
+{
+  "name": "Mob Spawner",
+  "icon": "minecraft:spawner",
+  "category": "supreme_crafting:rare_items",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Uncraftable in vanilla — found only in dungeons. A serious endgame tool with a commensurate cost."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Caveat",
+      "text": "The crafted spawner defaults to a $(l)Pig$() spawner when placed. Changing the entity type requires NBT manipulation (server tools or modded items)."
+    }
+  ]
+}

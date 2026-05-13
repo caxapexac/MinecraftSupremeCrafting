@@ -1,0 +1,28 @@
+{
+  "type": "supreme_crafting:supreme_shaped",
+  "pattern": [
+    ".PPPPP.",
+    ".PPPPP.",
+    ".PPPPP.",
+    ".PPPPP.",
+    ".PPPPP.",
+    "...S...",
+    "...S...",
+    "...S...",
+    "...S...",
+    "...S...",
+    "...S...",
+    "...S...",
+    "...S...",
+    "...S...",
+    "...S..."
+  ],
+  "key": {
+    "P": { "tag": "minecraft:planks" },
+    "S": { "item": "minecraft:stick" }
+  },
+  "result": {
+    "id": "supreme_crafting:supreme_wooden_shovel",
+    "count": 1
+  }
+}

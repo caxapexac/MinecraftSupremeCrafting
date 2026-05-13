@@ -1,0 +1,21 @@
+{
+  "type": "supreme_crafting:supreme_shaped",
+  "pattern": [
+    "NIIIN",
+    "IAEAI",
+    "IEBEI",
+    "IAEAI",
+    "NIIIN"
+  ],
+  "key": {
+    "N": { "item": "minecraft:netherite_ingot" },
+    "I": { "item": "minecraft:iron_block" },
+    "A": { "item": "minecraft:anvil" },
+    "E": { "item": "minecraft:echo_shard" },
+    "B": { "item": "minecraft:breeze_rod" }
+  },
+  "result": {
+    "id": "minecraft:heavy_core",
+    "count": 1
+  }
+}

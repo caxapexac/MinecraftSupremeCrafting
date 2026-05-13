@@ -1,0 +1,21 @@
+{
+  "type": "supreme_crafting:supreme_shaped",
+  "pattern": [
+    "DDDDDDD",
+    "DKKKKKD",
+    "DKDDDKD",
+    "DKDPDKD",
+    "DKDDDKD",
+    "DKKKKKD",
+    "DDDDDDD"
+  ],
+  "key": {
+    "D": { "item": "minecraft:dried_kelp_block" },
+    "K": { "item": "minecraft:kelp" },
+    "P": { "item": "minecraft:sea_pickle" }
+  },
+  "result": {
+    "id": "minecraft:sponge",
+    "count": 1
+  }
+}

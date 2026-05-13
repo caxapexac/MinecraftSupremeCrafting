@@ -1,0 +1,22 @@
+{
+  "name": "Furnace Destroyer",
+  "icon": "supreme_crafting:furnace_destroyer",
+  "category": "supreme_crafting:tools",
+  "sortnum": 13,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Iron-tier pickaxe that voids and propagates. Hits to Supreme Furnace shell blocks break instantly and start a chain that steadily destroys every connected casing — about 100 blocks per server tick. Cascading destroys do not consume durability."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Warning",
+      "text": "$(thing)Voids mined furnace blocks$() — nothing drops, neither the broken block nor the cascade. Use $(item)Supreme Wrench$() to disassemble normally if you want the casings back."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "supreme_crafting:furnace_destroyer",
+      "title": "Recipe"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Elytra",
+  "icon": "minecraft:elytra",
+  "category": "supreme_crafting:rare_items",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Normally found only in End Cities. A real commitment to craft — but no End City required."
+    }
+  ]
+}

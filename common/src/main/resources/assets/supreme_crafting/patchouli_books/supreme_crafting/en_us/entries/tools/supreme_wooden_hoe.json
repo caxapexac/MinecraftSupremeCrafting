@@ -1,0 +1,12 @@
+{
+  "name": "Supreme Wooden Hoe",
+  "icon": "supreme_crafting:supreme_wooden_hoe",
+  "category": "supreme_crafting:tools",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "A wooden hoe, towering. Vanilla stats."
+    }
+  ]
+}

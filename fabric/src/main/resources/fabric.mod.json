@@ -3,36 +3,33 @@
   "id": "supreme_crafting",
   "version": "${version}",
   "name": "Supreme Crafting",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "description": "Oversized crafting devices and other unexpected uses of vanilla mechanics. First feature: an 81x81 crafting table.",
   "authors": [
-    "Me!"
+    "caxapexac"
   ],
-  "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
-  },
-  "license": "CC0-1.0",
+  "license": "All Rights Reserved",
   "icon": "assets/supreme_crafting/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.supremecrafting.fabric.ExampleModFabric"
+      "com.supremecrafting.fabric.SupremeCraftingFabric"
     ],
     "client": [
-      "com.supremecrafting.fabric.client.ExampleModFabricClient"
+      "com.supremecrafting.fabric.client.SupremeCraftingFabricClient"
+    ],
+    "emi": [
+      "com.supremecrafting.emi.SupremeEmiPlugin"
     ]
   },
   "mixins": [
     "supreme_crafting.mixins.json"
   ],
+  "accessWidener": "supreme_crafting.accesswidener",
   "depends": {
     "fabricloader": ">=0.19.2",
     "minecraft": "~1.21.1",
     "java": ">=21",
     "architectury": ">=13.0.8",
     "fabric-api": "*"
-  },
-  "suggests": {
-    "another-mod": "*"
   }
 }

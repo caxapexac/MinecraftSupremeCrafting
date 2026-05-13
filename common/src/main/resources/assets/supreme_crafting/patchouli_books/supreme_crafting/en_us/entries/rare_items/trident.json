@@ -1,0 +1,12 @@
+{
+  "name": "Trident",
+  "icon": "minecraft:trident",
+  "category": "supreme_crafting:rare_items",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "A weapon of the sea, normally pried from Drowned with grim and unreliable odds. Epic-feeling and RNG-free at the Supreme Table."
+    }
+  ]
+}

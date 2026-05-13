@@ -1,0 +1,12 @@
+{
+  "name": "Heavy Core",
+  "icon": "minecraft:heavy_core",
+  "category": "supreme_crafting:rare_items",
+  "sortnum": 8,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Drops only from Ominous Trial Vaults — and then never enough. Pair with a Breeze Rod to craft a Mace."
+    }
+  ]
+}

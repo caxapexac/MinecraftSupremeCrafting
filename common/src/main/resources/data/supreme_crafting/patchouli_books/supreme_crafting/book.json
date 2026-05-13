@@ -1,0 +1,10 @@
+{
+  "name": "supreme_crafting.book.name",
+  "landing_text": "supreme_crafting.book.landing_text",
+  "model": "patchouli:book_brown",
+  "version": 1,
+  "creative_tab": "supreme_crafting:main",
+  "show_progress": false,
+  "i18n": true,
+  "use_resource_pack": true
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Heart of the Sea",
+  "icon": "minecraft:heart_of_the_sea",
+  "category": "supreme_crafting:rare_items",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Buried treasure only — until now. Use it for Conduits."
+    }
+  ]
+}

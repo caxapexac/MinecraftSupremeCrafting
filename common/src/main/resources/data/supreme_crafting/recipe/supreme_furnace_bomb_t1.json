@@ -1,0 +1,17 @@
+{
+  "type": "supreme_crafting:supreme_shaped",
+  "pattern": [
+    "GTG",
+    "TFT",
+    "GTG"
+  ],
+  "key": {
+    "G": { "item": "minecraft:gunpowder" },
+    "T": { "item": "minecraft:tnt" },
+    "F": { "item": "supreme_crafting:supreme_furnace_casing" }
+  },
+  "result": {
+    "id": "supreme_crafting:supreme_furnace_bomb_t1",
+    "count": 1
+  }
+}

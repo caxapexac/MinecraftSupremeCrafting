@@ -1,0 +1,12 @@
+{
+  "name": "Sponge",
+  "icon": "minecraft:sponge",
+  "category": "supreme_crafting:rare_items",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Ocean Monument loot, in a pinch. Useful for draining water; cheap enough to make a few."
+    }
+  ]
+}

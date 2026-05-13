@@ -1,0 +1,6 @@
+{
+  "name": "Rare Items",
+  "description": "Items normally locked behind loot tables or rare mob drops, made craftable at the Supreme Table.",
+  "icon": "minecraft:elytra",
+  "sortnum": 3
+}

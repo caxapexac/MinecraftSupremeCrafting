@@ -7,6 +7,21 @@ architectury {
     fabric()
 }
 
+loom {
+    accessWidenerPath = project(":common").file("src/main/resources/supreme_crafting.accesswidener")
+}
+
+repositories {
+    maven {
+        name = 'TerraformersMC'
+        url = 'https://maven.terraformersmc.com/releases/'
+    }
+    maven {
+        name = 'BlameJared'
+        url = 'https://maven.blamejared.com/'
+    }
+}
+
 configurations {
     common {
         canBeResolved = true
@@ -35,10 +50,65 @@ dependencies {
 
     common(project(path: ':common', configuration: 'namedElements')) { transitive = false }
     shadowBundle project(path: ':common', configuration: 'transformProductionFabric')
+
+    // EMI — recipe viewer integration. Compile-only against the API jar so the
+    // mod still loads when EMI isn't installed; the plugin entrypoint is only
+    // resolved when EMI is present at runtime.
+    modCompileOnly "dev.emi:emi-fabric:$rootProject.emi_version:api"
+
+    // JEI — recipe viewer integration. Compile against API jars only so the
+    // mod still loads without JEI; only the plugin class is JEI-aware.
+    modCompileOnly "mezz.jei:jei-1.21.1-common-api:$rootProject.jei_version"
+    modCompileOnly "mezz.jei:jei-1.21.1-fabric-api:$rootProject.jei_version"
+
+    // Runtime — gated by the `viewer` Gradle property (default: both).
+    // The runClientEmi / runClientJei wrapper tasks below set this property
+    // automatically so the user doesn't need to remember the -P flag.
+    def viewer = (project.findProperty('viewer') ?: 'both').toString().toLowerCase()
+    if (viewer == 'both' || viewer == 'emi') {
+        modLocalRuntime "dev.emi:emi-fabric:$rootProject.emi_version"
+    }
+    if (viewer == 'both' || viewer == 'jei') {
+        modLocalRuntime "mezz.jei:jei-1.21.1-fabric:$rootProject.jei_version"
+    }
+
+    // MouseTweaks — on by default in dev. Opt out with `-Pmousetweaks=false`.
+    def mousetweaks = (project.findProperty('mousetweaks') ?: 'true').toString().toLowerCase() == 'true'
+    if (mousetweaks) {
+        modLocalRuntime "maven.modrinth:mouse-tweaks:$rootProject.mouse_tweaks_fabric_version"
+    }
+
+}
+
+// Convenience wrappers: ./gradlew :fabric:runClientEmi (or :runClientJei)
+// re-invokes runClient with the appropriate `viewer` property so only one
+// recipe viewer is on the dev classpath.
+['Emi', 'Jei'].each { v ->
+    tasks.register("runClient${v}", GradleBuild) {
+        group = 'fabric'
+        description = "Run the Fabric client with only ${v} loaded as the recipe viewer."
+        tasks = [':fabric:runClient']
+        startParameter.projectProperties = [viewer: v.toLowerCase()]
+    }
 }
 
 processResources {
     inputs.property 'version', project.version
+
+    // Pull common's access widener into fabric's resources so Fabric Loader
+    // can find it as part of the supreme_crafting mod jar / dev mod view.
+    // Without this, dev runtime (modLocalRuntime additions like EMI) produces
+    // "Missing classTweaker file supreme_crafting.accesswidener" at startup.
+    from(project(":common").file("src/main/resources/supreme_crafting.accesswidener"))
+
+    // Mirror common's Patchouli book.json into per-loader resources. Common's
+    // resources are on the dev classpath but NOT in the per-loader mod
+    // container's resource tree — so Patchouli's findFiles() can't see
+    // book.json there. ResourceManager-based loading (entries, categories)
+    // works fine without this.
+    from(project(":common").file("src/main/resources/data/supreme_crafting/patchouli_books")) {
+        into 'data/supreme_crafting/patchouli_books'
+    }
 
     filesMatching('fabric.mod.json') {
         expand version: inputs.properties.version

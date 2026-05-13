@@ -1,0 +1,34 @@
+{
+  "type": "supreme_crafting:supreme_shaped",
+  "pattern": [
+    "....P....",
+    "...PPP...",
+    "..PPPPP..",
+    "....P....",
+    "....P....",
+    "....P....",
+    "....P....",
+    "....P....",
+    "....P....",
+    "....P....",
+    "....P....",
+    "....P....",
+    "....P....",
+    "....P....",
+    "....P....",
+    ".PPPPPPP.",
+    "....S....",
+    "....S....",
+    "....S....",
+    "....S....",
+    "....S...."
+  ],
+  "key": {
+    "P": { "tag": "minecraft:planks" },
+    "S": { "item": "minecraft:stick" }
+  },
+  "result": {
+    "id": "supreme_crafting:supreme_wooden_sword",
+    "count": 1
+  }
+}

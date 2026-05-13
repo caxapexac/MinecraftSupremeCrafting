@@ -1,0 +1,32 @@
+{
+  "name": "Supreme Furnace Bombs",
+  "icon": "supreme_crafting:supreme_furnace_bomb_t1",
+  "category": "supreme_crafting:tools",
+  "sortnum": 12,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Thrown like a snowball; on impact builds a Supreme Furnace at the landing spot. Three tiers: $(item)T1$() builds 32³, $(item)T2$() builds 64³, $(item)T3$() builds 128³. The landing block becomes the bottom-center of the new structure."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Warning",
+      "text": "$(thing)Destroys and voids$() every block inside the target cube — including chests, spawners, and anything else in the way — without dropping anything. Use over open ground or somewhere you don't mind losing."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "supreme_crafting:supreme_furnace_bomb_t1",
+      "title": "T1 Recipe (32³)"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "supreme_crafting:supreme_furnace_bomb_t2",
+      "title": "T2 Recipe (64³)"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "supreme_crafting:supreme_furnace_bomb_t3",
+      "title": "T3 Recipe (128³)"
+    }
+  ]
+}

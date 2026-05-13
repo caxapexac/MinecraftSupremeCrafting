@@ -24,11 +24,24 @@ subprojects {
     }
 
     repositories {
-        // Add repositories to retrieve artifacts from in here.
-        // You should only use this when depending on other mods because
-        // Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
-        // See https://docs.gradle.org/current/userguide/declaring_repositories.html
-        // for more information about repositories.
+        // Modrinth Maven — needed by common+fabric+neoforge for ecosystem
+        // mods (KubeJS, Jade, MouseTweaks, IPN, …). Group is always
+        // `maven.modrinth`; we constrain the repo to that group so it doesn't
+        // get queried for unrelated artifacts.
+        maven {
+            name = 'Modrinth'
+            url = 'https://api.modrinth.com/maven'
+            content { includeGroup 'maven.modrinth' }
+        }
+        // CurseMaven — Modrinth-equivalent for CurseForge-only mods or when
+        // we have CurseForge project+file IDs handy. Coords are
+        // `curse.maven:<slug>-<projectId>:<fileId>`. Group locked to
+        // `curse.maven` so it's not queried for anything else.
+        maven {
+            name = 'CurseMaven'
+            url = 'https://www.cursemaven.com'
+            content { includeGroup 'curse.maven' }
+        }
     }
 
     loom {
